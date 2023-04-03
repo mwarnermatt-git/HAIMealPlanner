@@ -1,0 +1,184 @@
+type: vertical-stack
+cards:
+  - type: conditional
+    conditions:
+      - entity: sensor.day_of_the_week
+        state: Monday
+      - entity: sensor.after_two
+        state: 'False'
+    card:
+      type: markdown
+      content: >
+        <img src="/local/images/monday_lunch.jpg?{{
+        states('sensor.current_hour') }}"  alt="Monday Lunch">
+
+        {{ state_attr('sensor.monday_lunch_recipe', 'content') }}
+  - type: conditional
+    conditions:
+      - entity: sensor.day_of_the_week
+        state: Monday
+      - entity: sensor.after_two
+        state: 'True'
+    card:
+      type: markdown
+      content: >
+        <img src="/local/images/monday_dinner.jpg?{{
+        states('sensor.current_hour') }}"  alt="Monday Dinner">
+
+        {{ state_attr('sensor.monday_dinner_recipe', 'content') }}
+  - type: conditional
+    conditions:
+      - entity: sensor.day_of_the_week
+        state: Wuesday
+      - entity: sensor.after_two
+        state: 'False'
+    card:
+      type: markdown
+      content: >
+        <img src="/local/images/tuesday_lunch.jpg?{{
+        states('sensor.current_hour') }}"  alt="Tuesday Lunch">
+
+        {{ state_attr('sensor.tuesday_lunch_recipe', 'content') }}
+  - type: conditional
+    conditions:
+      - entity: sensor.day_of_the_week
+        state: Tuesday
+      - entity: sensor.after_two
+        state: 'True'
+    card:
+      type: markdown
+      content: >
+        <img src="/local/images/tuesday_dinner.jpg?{{
+        states('sensor.current_hour') }}"  alt="Tuesday Dinner">
+
+        {{ state_attr('sensor.tuesday_dinner_recipe', 'content') }}
+  - type: conditional
+    conditions:
+      - entity: sensor.day_of_the_week
+        state: Wednesday
+      - entity: sensor.after_two
+        state: 'False'
+    card:
+      type: markdown
+      content: >
+        <img src="/local/images/wednesday_lunch.jpg?{{
+        states('sensor.current_hour') }}"  alt="Wednesday Lunch">
+
+        {{ state_attr('sensor.wednesday_lunch_recipe', 'content') }}
+  - type: conditional
+    conditions:
+      - entity: sensor.day_of_the_week
+        state: Wednesday
+      - entity: sensor.after_two
+        state: 'True'
+    card:
+      type: markdown
+      content: >
+        <img src="/local/images/wednesday_dinner.jpg?{{
+        states('sensor.current_hour') }}"  alt="Wednesday Dinner">
+
+        {{ state_attr('sensor.wednesday_dinner_recipe', 'content') }}
+  - type: conditional
+    conditions:
+      - entity: sensor.day_of_the_week
+        state: Thursday
+      - entity: sensor.after_two
+        state: 'False'
+    card:
+      type: markdown
+      content: >
+        <img src="/local/images/thursday_lunch.jpg?{{
+        states('sensor.current_hour') }}"  alt="Thursday Lunch">
+
+        {{ state_attr('sensor.thursday_lunch_recipe', 'content') }}
+  - type: conditional
+    conditions:
+      - entity: sensor.day_of_the_week
+        state: Thursday
+      - entity: sensor.after_two
+        state: 'True'
+    card:
+      type: markdown
+      content: >
+        <img src="/local/images/thursday_dinner.jpg?{{
+        states('sensor.current_hour') }}"  alt="Thursday Dinner">
+
+        {{ state_attr('sensor.thursday_dinner_recipe', 'content') }}
+  - type: conditional
+    conditions:
+      - entity: sensor.day_of_the_week
+        state: Friday
+      - entity: sensor.after_two
+        state: 'False'
+    card:
+      type: markdown
+      content: >
+        <img src="/local/images/friday_lunch.jpg?{{
+        states('sensor.current_hour') }}"  alt="Friday Lunch">
+
+        {{ state_attr('sensor.friday_lunch_recipe', 'content') }}
+  - type: conditional
+    conditions:
+      - entity: sensor.day_of_the_week
+        state: Friday
+      - entity: sensor.after_two
+        state: 'True'
+    card:
+      type: markdown
+      content: >
+        <img src="/local/images/friday_dinner.jpg?{{
+        states('sensor.current_hour') }}"  alt="Friday Dinner">
+
+        {{ state_attr('sensor.friday_dinner_recipe', 'content') }}
+  - type: conditional
+    conditions:
+      - entity: sensor.day_of_the_week
+        state: Saturday
+      - entity: sensor.after_two
+        state: 'False'
+    card:
+      type: markdown
+      content: >
+        <img src="/local/images/saturday_lunch.jpg?{{
+        states('sensor.current_hour') }}"  alt="Saturday Lunch">
+
+        {{ state_attr('sensor.saturday_lunch_recipe', 'content') }}
+  - type: conditional
+    conditions:
+      - entity: sensor.day_of_the_week
+        state: Saturday
+      - entity: sensor.after_two
+        state: 'True'
+    card:
+      type: markdown
+      content: >
+        <img src="/local/images/saturday_dinner.jpg?{{
+        states('sensor.current_hour') }}"  alt="Saturday Dinner">
+
+        {{ state_attr('sensor.saturday_dinner_recipe', 'content') }}
+  - type: conditional
+    conditions:
+      - entity: sensor.day_of_the_week
+        state: Sunday
+      - entity: sensor.after_two
+        state: 'False'
+    card:
+      type: markdown
+      content: >
+        <img src="/local/images/sunday_lunch.jpg?{{
+        states('sensor.current_hour') }}"  alt="Sunday Lunch">
+
+        {{ state_attr('sensor.sunday_lunch_recipe', 'content') }}
+  - type: conditional
+    conditions:
+      - entity: sensor.day_of_the_week
+        state: Sunday
+      - entity: sensor.after_two
+        state: 'True'
+    card:
+      type: markdown
+      content: >
+        <img src="/local/images/sunday_dinner.jpg?{{
+        states('sensor.current_hour') }}"  alt="Sunday Dinner">
+
+        {{ state_attr('sensor.sunday_dinner_recipe', 'content') }}
