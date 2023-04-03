@@ -1,0 +1,81 @@
+type: vertical-stack
+cards:
+  - type: markdown
+    content: >
+      # Weekly Meal Plan
+
+      ***
+
+      | **DAY**       |
+      **LUNCH**                                                                
+      |
+      **DINNER**                                                               
+      |
+
+      |:---------|:---------------------------------------------------------------------|:---------------------------------------------------------------------|    
+
+      | Monday    | [{{ states('input_text.monday_lunch') }}]({{
+      states('input_text.monday_lunch_url') }})       | [{{
+      states('input_text.monday_dinner') }}]({{
+      states('input_text.monday_dinner_url') }})       |
+
+      | Tuesday   | [{{ states('input_text.tuesday_lunch') }}]({{
+      states('input_text.tuesday_lunch_url') }})     | [{{
+      states('input_text.tuesday_dinner') }}]({{
+      states('input_text.tuesday_dinner_url') }})     |
+
+      | Wednesday | [{{ states('input_text.wednesday_lunch') }}]({{
+      states('input_text.wednesday_lunch_url') }}) | [{{
+      states('input_text.wednesday_dinner') }}]({{
+      states('input_text.wednesday_dinner_url') }}) |
+
+      | Thursday  | [{{ states('input_text.thursday_lunch') }}]({{
+      states('input_text.thursday_lunch_url') }})   | [{{
+      states('input_text.thursday_dinner') }}]({{
+      states('input_text.thursday_dinner_url') }})   |
+
+      | Friday    | [{{ states('input_text.friday_lunch') }}]({{
+      states('input_text.friday_lunch_url') }})       | [{{
+      states('input_text.friday_dinner') }}]({{
+      states('input_text.friday_dinner_url') }})       |
+
+      | Saturday  | [{{ states('input_text.saturday_lunch') }}]({{
+      states('input_text.saturday_lunch_url') }})   | [{{
+      states('input_text.saturday_dinner') }}]({{
+      states('input_text.saturday_dinner_url') }})   |
+
+      | Sunday    | [{{ states('input_text.sunday_lunch') }}]({{
+      states('input_text.sunday_lunch_url') }})       | [{{
+      states('input_text.sunday_dinner') }}]({{
+      states('input_text.sunday_dinner_url') }})       |
+
+      ***
+  - type: entities
+    entities:
+      - entity: input_boolean.show_meal_planner
+        name: Edit
+        icon: mdi:notebook
+      - entity: script.suggest_recipes
+      - entity: script.generate_recipe_images
+        name: Generate Recipe Cards
+  - type: conditional
+    conditions:
+      - entity: input_boolean.show_meal_planner
+        state: 'on'
+    card:
+      type: entities
+      entities:
+        - entity: input_text.monday_lunch
+        - entity: input_text.monday_dinner
+        - entity: input_text.tuesday_lunch
+        - entity: input_text.tuesday_dinner
+        - entity: input_text.wednesday_lunch
+        - entity: input_text.wednesday_dinner
+        - entity: input_text.thursday_lunch
+        - entity: input_text.thursday_dinner
+        - entity: input_text.friday_lunch
+        - entity: input_text.friday_dinner
+        - entity: input_text.saturday_lunch
+        - entity: input_text.saturday_dinner
+        - entity: input_text.sunday_lunch
+        - entity: input_text.sunday_dinner

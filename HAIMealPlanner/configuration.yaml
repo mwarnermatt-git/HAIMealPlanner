@@ -1,0 +1,189 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+homeassistant:
+  customize: !include customize.yaml
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+
+sensor:
+  - platform: template
+    sensors:
+      after_two:
+        friendly_name: 'After 2 PM'
+        value_template: '{{now().hour >= 14}}'
+  - platform: template
+    sensors:
+      monday_lunch_recipe:
+        friendly_name: "Monday Lunch Recipe"
+        value_template: "Available"
+        attribute_templates:
+          content: "{{ states('sensor.monday_lunch_recipe') }}"
+      monday_dinner_recipe:
+        friendly_name: "Monday dinner Recipe"
+        value_template: "Available"
+        attribute_templates:
+          content: "{{ states('sensor.monday_dinner_recipe') }}"
+      tuesday_lunch_recipe:
+        friendly_name: "tuesday Lunch Recipe"
+        value_template: "Available"
+        attribute_templates:
+          content: "{{ states('sensor.tuesday_lunch_recipe') }}"
+      tuesday_dinner_recipe:
+        friendly_name: "tuesday dinner Recipe"
+        value_template: "Available"
+        attribute_templates:
+          content: "{{ states('sensor.tuesday_dinner_recipe') }}"
+      wednesday_lunch_recipe:
+        friendly_name: "wednesday Lunch Recipe"
+        value_template: "Available"
+        attribute_templates:
+          content: "{{ states('sensor.wednesday_lunch_recipe') }}"
+      wednesday_dinner_recipe:
+        friendly_name: "wednesday dinner Recipe"
+        value_template: "Available"
+        attribute_templates:
+          content: "{{ states('sensor.wednesday_dinner_recipe') }}"
+      thursday_lunch_recipe:
+        friendly_name: "thursday Lunch Recipe"
+        value_template: "Available"
+        attribute_templates:
+          content: "{{ states('sensor.thursday_lunch_recipe') }}"
+      thursday_dinner_recipe:
+        friendly_name: "thursday dinner Recipe"
+        value_template: "Available"
+        attribute_templates:
+          content: "{{ states('sensor.thursday_dinner_recipe') }}"
+      friday_lunch_recipe:
+        friendly_name: "friday Lunch Recipe"
+        value_template: "Available"
+        attribute_templates:
+          content: "{{ states('sensor.friday_lunch_recipe') }}"
+      friday_dinner_recipe:
+        friendly_name: "friday dinner Recipe"
+        value_template: "Available"
+        attribute_templates:
+          content: "{{ states('sensor.friday_dinner_recipe') }}"
+      saturday_lunch_recipe:
+        friendly_name: "saturday Lunch Recipe"
+        value_template: "Available"
+        attribute_templates:
+          content: "{{ states('sensor.saturday_lunch_recipe') }}"
+      saturday_dinner_recipe:
+        friendly_name: "saturday dinner Recipe"
+        value_template: "Available"
+        attribute_templates:
+          content: "{{ states('sensor.saturday_dinner_recipe') }}"
+      sunday_lunch_recipe:
+        friendly_name: "sunday Lunch Recipe"
+        value_template: "Available"
+        attribute_templates:
+          content: "{{ states('sensor.sunday_lunch_recipe') }}"
+      sunday_dinner_recipe:
+        friendly_name: "sunday dinner Recipe"
+        value_template: "Available"
+        attribute_templates:
+          content: "{{ states('sensor.sunday_dinner_recipe') }}"
+
+#Cache-buster so images refresh in Markdown card. TODO: Find better cache buster. 
+template:
+  - sensor:
+      - name: "Current Hour"
+        unique_id: current_hour
+        state: "{{ now().hour }}"
+
+input_boolean:
+  show_meal_planner:
+    name: Show Meal Planner
+    initial: off
+    
+#TODO: Can these be replaced with one entity with multiple properties? 
+input_text:
+  monday_lunch:
+    name: Monday Lunch
+  monday_lunch_url:
+    name: Monday Lunch URL
+  monday_lunch_image_url:
+    name: Monday Lunch Image URL
+  monday_dinner:
+    name: Monday Dinner
+  monday_dinner_url:
+    name: Monday Dinner URL
+  monday_dinner_image_url:
+    name: Monday Dinner Image URL
+  tuesday_lunch:
+    name: Tuesday Lunch
+  tuesday_lunch_url:
+    name: Tuesday Lunch URL
+  tuesday_lunch_image_url:
+    name: Tuesday Lunch Image URL
+  tuesday_dinner:
+    name: Tuesday Dinner
+  tuesday_dinner_url:
+    name: Tuesday Dinner URL
+  tuesday_dinner_image_url:
+    name: Tuesday Dinner Image URL
+  wednesday_lunch:
+    name: Wednesday Lunch
+  wednesday_lunch_url:
+    name: Wednesday Lunch URL
+  wednesday_lunch_image_url:
+    name: Wednesday Lunch Image URL
+  wednesday_dinner:
+    name: Wednesday Dinner
+  wednesday_dinner_url:
+    name: Wednesday Dinner URL
+  wednesday_dinner_image_url:
+    name: Wednesday Dinner Image URL
+  thursday_lunch:
+    name: Thursday Lunch
+  thursday_lunch_url:
+    name: Thursday Lunch URL
+  thursday_lunch_image_url:
+    name: Thursday Lunch Image URL
+  thursday_dinner:
+    name: Thursday Dinner
+  thursday_dinner_url:
+    name: Thursday Dinner URL
+  thursday_dinner_image_url:
+    name: Thursday Dinner Image URL
+  friday_lunch:
+    name: Friday Lunch
+  friday_lunch_url:
+    name: Friday Lunch URL
+  friday_lunch_image_url:
+    name: Friday Lunch Image URL
+  friday_dinner:
+    name: Friday Dinner
+  friday_dinner_url:
+    name: Friday Dinner URL
+  friday_dinner_image_url:
+    name: Friday Dinner Image URL
+  saturday_lunch:
+    name: Saturday Lunch
+  saturday_lunch_url:
+    name: Saturday Lunch URL
+  saturday_lunch_image_url:
+    name: Saturday Lunch Image URL
+  saturday_dinner:
+    name: Saturday Dinner
+  saturday_dinner_url:
+    name: Saturday Dinner URL
+  saturday_dinner_image_url:
+    name: Saturday Dinner Image URL
+  sunday_lunch:
+    name: Sunday Lunch
+  sunday_lunch_url:
+    name: Sunday Lunch URL
+  sunday_lunch_image_url:
+    name: Sunday Lunch Image URL
+  sunday_dinner:
+    name: Sunday Dinner
+  sunday_dinner_url:
+    name: Sunday Dinner URL
+  sunday_dinner_image_url:
+    name: Sunday Dinner Image URL
